@@ -24,3 +24,8 @@ nav {
     display: flex;
     gap: 30px;
 }
+.nav-links a {
+    color: #ccd6f6;
+    text-decoration: none;
+    font-size: 14px;
+}
