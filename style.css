@@ -32,7 +32,7 @@ nav {
     gap: 30px;
 }
 .nav-links a {
-    color: #ccd6f6;
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 14px;
 }
