@@ -8,3 +8,9 @@ body {
     color: #ccd6f6;
     font-family: Arial, sans-serif;
 }
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 50px;
+}
