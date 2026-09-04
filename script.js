@@ -4,7 +4,7 @@ if (year) {
   year.textContent = new Date().getFullYear();
 }
 
-/* Scroll-reveal animation */
+/* Scroll reveal */
 
 const revealItems = document.querySelectorAll(
   "main section, .project-card"
@@ -29,7 +29,7 @@ revealItems.forEach((item) => {
   revealObserver.observe(item);
 });
 
-/* Active navigation state */
+/* Active navigation */
 
 const navLinks = document.querySelectorAll(".nav-links a");
 const sections = document.querySelectorAll("main section[id]");
@@ -57,7 +57,9 @@ const navObserver = new IntersectionObserver(
   }
 );
 
-sections.forEach((section) => navObserver.observe(section));
+sections.forEach((section) => {
+  navObserver.observe(section);
+});
 
 /* Custom smooth scrolling */
 
@@ -79,6 +81,7 @@ function animateScroll(targetPosition) {
 
   const startPosition = window.scrollY;
   const distance = targetPosition - startPosition;
+
   const duration = Math.min(
     850,
     Math.max(450, Math.abs(distance) * 0.35)
@@ -89,11 +92,10 @@ function animateScroll(targetPosition) {
   function step(currentTime) {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    const easedProgress = easeInOutCubic(progress);
 
     window.scrollTo(
       0,
-      startPosition + distance * easedProgress
+      startPosition + distance * easeInOutCubic(progress)
     );
 
     if (progress < 1) {
@@ -140,26 +142,25 @@ window.addEventListener("popstate", () => {
   }
 });
 
-/* Cursor light trail */
+/* Cursor trail */
 
-const canvas = document.querySelector("#spotlight-trail");
-const context = canvas.getContext("2d");
+const trailCanvas = document.querySelector("#spotlight-trail");
+const trailContext = trailCanvas.getContext("2d");
 
 const trailPoints = [];
 const trailLife = 550;
 
-function resizeCanvas() {
+function resizeTrailCanvas() {
   const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
 
-  canvas.width = window.innerWidth * pixelRatio;
-  canvas.height = window.innerHeight * pixelRatio;
+  trailCanvas.width = window.innerWidth * pixelRatio;
+  trailCanvas.height = window.innerHeight * pixelRatio;
 
-  context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+  trailContext.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
 }
 
-resizeCanvas();
-
-window.addEventListener("resize", resizeCanvas);
+resizeTrailCanvas();
+window.addEventListener("resize", resizeTrailCanvas);
 
 document.addEventListener("pointermove", (event) => {
   const lastPoint = trailPoints[trailPoints.length - 1];
@@ -180,7 +181,7 @@ document.addEventListener("pointermove", (event) => {
 });
 
 function drawTrail(time) {
-  context.clearRect(
+  trailContext.clearRect(
     0,
     0,
     window.innerWidth,
@@ -200,7 +201,7 @@ function drawTrail(time) {
     const opacity = Math.pow(1 - progress, 2);
     const radius = 80 * (1 - progress * 0.35);
 
-    const glow = context.createRadialGradient(
+    const glow = trailContext.createRadialGradient(
       point.x,
       point.y,
       0,
@@ -224,16 +225,16 @@ function drawTrail(time) {
       "rgba(210, 178, 115, 0)"
     );
 
-    context.fillStyle = glow;
-    context.beginPath();
-    context.arc(
+    trailContext.fillStyle = glow;
+    trailContext.beginPath();
+    trailContext.arc(
       point.x,
       point.y,
       radius,
       0,
       Math.PI * 2
     );
-    context.fill();
+    trailContext.fill();
   });
 
   requestAnimationFrame(drawTrail);
