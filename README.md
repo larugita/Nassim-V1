@@ -4,6 +4,9 @@ My personal portfolio website showcasing my background, skills, projects, and jo
 
 🌐 **Live:** [nassimwarner.com](https://nassimwarner.com)
 
+<img width="1902" height="946" alt="image" src="https://github.com/user-attachments/assets/aa10938c-a6e1-4803-b325-36eb238e33c0" />
+
+
 ## About
 
 Nassim-V1 is a personal portfolio built to document my growth as a Computer Science student and software developer.
