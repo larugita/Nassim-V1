@@ -3,20 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nassim</title>
+
+    <meta
+        name="description"
+        content="Portfolio of Nassim Warner, a Computer Science student building useful software."
+    >
+
+    <title>Nassim Warner | Software Developer</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <canvas id="spotlight-trail" aria-hidden="true"></canvas>
-    <header>
-        <nav>
-            <a href="#home" class="logo">NW.</a>
+
+    <header class="site-header">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="#home" class="logo" aria-label="Go to home">NW.</a>
 
             <div class="nav-links">
                 <a href="#home">/home</a>
                 <a href="#about">/about</a>
                 <a href="#projects">/projects</a>
+                <a href="#journey">/journey</a>
                 <a href="#contact">/contact</a>
             </div>
         </nav>
@@ -24,51 +33,105 @@
 
     <main>
         <section id="home" class="hero">
+            <p class="eyebrow">
+                <span class="status-dot"></span>
+                Computer Science Student · Toronto, Canada
+            </p>
+
             <h1 class="hero-intro">
                 hey, <span class="name-highlight">nassim</span> here.<span class="cursor">|</span>
             </h1>
 
             <p class="hero-description">
-                I write code, build cool things, and spend a lot of time chasing
-                the next idea worth bringing to life. Otherwise, you'll probably
-                find me on Valorant, playing basketball, or simply vibing to some
-                good tunes. (I know ball.)
+                I build useful software, explore interesting ideas, and keep
+                learning by making things that work in the real world.
             </p>
+
+            <div class="hero-actions">
+                <a href="#projects" class="button button-primary">
+                    View my work <span aria-hidden="true">↓</span>
+                </a>
+
+                <a href="#contact" class="button button-secondary">
+                    Let's connect <span aria-hidden="true">↗</span>
+                </a>
+            </div>
+
+            <div class="hero-meta">
+                <span>Currently building</span>
+                <span class="meta-divider" aria-hidden="true">•</span>
+                <span>Job Scraper & API</span>
+            </div>
         </section>
 
         <section id="about" class="about">
             <div class="section-header">
                 <p class="section-label">/about</p>
-                <h2>A little about me</h2>
+                <h2>Building with curiosity and intention.</h2>
             </div>
 
-            <p class="about-description">
-                I'm a Computer Science student at Toronto Metropolitan University
-                interested in software engineering, systems, and building things
-                that are actually useful.
-            </p>
+            <div class="about-grid">
+                <div class="about-copy">
+                    <p class="about-description">
+                        I'm a Computer Science student at Toronto Metropolitan
+                        University interested in software engineering, systems,
+                        and building things that are actually useful.
+                    </p>
+
+                    <p class="about-description">
+                        I enjoy taking an idea from a rough sketch to a working
+                        product—whether that means designing an interface,
+                        building an API, or figuring out why something broke.
+                    </p>
+                </div>
+
+                <div class="about-details">
+                    <div class="detail-item">
+                        <p class="detail-label">Based in</p>
+                        <p class="detail-value">Toronto, Canada</p>
+                    </div>
+
+                    <div class="detail-item">
+                        <p class="detail-label">Currently focused on</p>
+                        <p class="detail-value">Python, APIs & web development</p>
+                    </div>
+
+                    <div class="detail-item">
+                        <p class="detail-label">Outside of code</p>
+                        <p class="detail-value">Basketball, Valorant & good music</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <section id="projects" class="projects">
-            <div class="section-header">
-                <p class="section-label">/projects</p>
-                <h2>Things I've built</h2>
+            <div class="section-header section-header-row">
+                <div>
+                    <p class="section-label">/projects</p>
+                    <h2>Things I've built.</h2>
+                </div>
+
+                <p class="section-note">More projects incoming.</p>
             </div>
 
             <div class="project-grid">
-                <article class="project-card">
+                <article class="project-card featured-project">
                     <div class="project-top">
-                        <h3>Job Scraper & API</h3>
+                        <div>
+                            <p class="project-number">01</p>
+                            <h3>Job Scraper & API</h3>
+                        </div>
+
                         <span class="project-status">In Progress</span>
                     </div>
 
-                    <p>
-                        A full-stack job scraping application that collects job listings,
-                        stores them in SQLite, and exposes them through a FastAPI REST API
-                        with filtering capabilities.
+                    <p class="project-description">
+                        A full-stack job scraping application that collects job
+                        listings, stores them in SQLite, and exposes them through
+                        a FastAPI REST API with filtering capabilities.
                     </p>
 
-                    <div class="project-tech">
+                    <div class="project-tech" aria-label="Technologies used">
                         <span>Python</span>
                         <span>Requests</span>
                         <span>SQLite</span>
@@ -81,46 +144,146 @@
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            GitHub ↗
+                            View source <span aria-hidden="true">↗</span>
                         </a>
+                    </div>
+                </article>
+
+                <article class="project-card project-card-incoming">
+                    <div class="project-top">
+                        <div>
+                            <p class="project-number">02</p>
+                            <h3>Next Build</h3>
+                        </div>
+
+                        <span class="project-status">Incoming</span>
+                    </div>
+
+                    <p class="project-description">
+                        The next project is currently being planned. Check back
+                        soon for another useful build.
+                    </p>
+
+                    <div class="project-tech" aria-label="Project status">
+                        <span>In planning</span>
+                        <span>Details soon</span>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="journey" class="journey">
+            <div class="section-header">
+                <p class="section-label">/journey</p>
+                <h2>Always moving forward.</h2>
+            </div>
+
+            <div class="timeline">
+                <article class="timeline-item">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+
+                    <div class="timeline-content">
+                        <div class="timeline-top">
+                            <p class="timeline-date">Now</p>
+                            <span class="timeline-status">In Progress</span>
+                        </div>
+
+                        <h3>Strengthening the foundation</h3>
+
+                        <p>
+                            Building stronger software fundamentals through
+                            projects, problem-solving, and consistent practice.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-marker" aria-hidden="true"></div>
+
+                    <div class="timeline-content">
+                        <div class="timeline-top">
+                            <p class="timeline-date">Next</p>
+                            <span class="timeline-status">In Progress</span>
+                        </div>
+
+                        <h3>Building a stronger portfolio</h3>
+
+                        <p>
+                            Shipping more complete projects and documenting the
+                            decisions, challenges, and lessons behind them.
+                        </p>
+                    </div>
+                </article>
+
+                <article class="timeline-item">
+                    <div class="timeline-marker timeline-marker-muted" aria-hidden="true"></div>
+
+                    <div class="timeline-content">
+                        <div class="timeline-top">
+                            <p class="timeline-date">Ahead</p>
+                            <span class="timeline-status timeline-status-muted">
+                                Incoming
+                            </span>
+                        </div>
+
+                        <h3>Software engineering internship</h3>
+
+                        <p>
+                            Preparing to contribute to a real engineering team,
+                            learn from great developers, and keep compounding
+                            practical experience.
+                        </p>
                     </div>
                 </article>
             </div>
         </section>
 
         <section id="contact" class="contact">
-            <div class="section-header">
+            <div class="contact-content">
                 <p class="section-label">/contact</p>
-                <h2>Get in contact</h2>
-            </div>
 
-            <p class="contact-description">
-                I'm always open to connecting!
-            </p>
+                <h2>Let's build something useful.</h2>
 
-            <div class="contact-links">
-                <a href="mailto:nassim.warner@torontomu.ca">
-                    Email ↗
-                </a>
+                <p class="contact-description">
+                    I'm always open to connecting about software, internships,
+                    interesting ideas, or a good basketball debate.
+                </p>
 
-                <a
-                    href="https://www.linkedin.com/in/nassim-warner"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    LinkedIn ↗
-                </a>
+                <div class="contact-links">
+                    <a class="contact-link" href="mailto:nassim.warner@torontomu.ca">
+                        <span>Email</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
 
-                <a
-                    href="https://github.com/larugita"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    GitHub ↗
-                </a>
+                    <a
+                        class="contact-link"
+                        href="https://www.linkedin.com/in/nassim-warner"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>LinkedIn</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a
+                        class="contact-link"
+                        href="https://github.com/larugita"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <span>GitHub</span>
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
             </div>
         </section>
     </main>
+
+    <footer class="site-footer">
+        <p>© <span id="year">2026</span> Nassim Warner.</p>
+
+        <a href="#home">Back to top <span aria-hidden="true">↑</span></a>
+    </footer>
 
     <script src="script.js"></script>
 </body>
