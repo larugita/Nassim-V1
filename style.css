@@ -4,6 +4,9 @@
   --text-primary: #e8e6e3;
   --text-secondary: #9a9a9a;
   --accent: #bfa06a;
+  --pointer-x: 50%;
+  --pointer-y: 30%;
+  --spotlight-opacity: 0;
 }
 
 * {
@@ -20,6 +23,21 @@ body {
   background: var(--background);
   color: var(--text-primary);
   font-family: Arial, sans-serif;
+}
+
+#spotlight-trail {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+header,
+main {
+  position: relative;
+  z-index: 1;
 }
 
 nav {
