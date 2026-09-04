@@ -1,4 +1,4 @@
-# Nassim-V1
+# nassimwarner.com - V1
 
 My personal portfolio website showcasing my background, skills, projects, and journey as a Computer Science student.
 
