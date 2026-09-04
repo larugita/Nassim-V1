@@ -160,3 +160,28 @@ nav {
     font-size: 13px;
     color: var(--text-secondary);
 }
+.about,
+.contact {
+  padding: 120px 12%;
+}
+
+.about-description,
+.contact-description {
+  margin-top: 24px;
+  max-width: 700px;
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.contact a {
+  display: inline-block;
+  margin-top: 24px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
