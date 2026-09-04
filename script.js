@@ -78,7 +78,6 @@ document.addEventListener("pointermove", (event) => {
 });
 
 function drawTrail(time) {
-  /* Start fresh every frame—this prevents permanent gray buildup. */
   context.clearRect(0, 0, window.innerWidth, window.innerHeight);
 
   const visiblePoints = trailPoints.filter(
@@ -117,3 +116,49 @@ function drawTrail(time) {
 }
 
 requestAnimationFrame(drawTrail);
+
+const pageLinks = document.querySelectorAll('a[href^="#"]');
+
+function easeInOutCubic(progress) {
+  return progress < 0.5
+    ? 4 * progress * progress * progress
+    : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+}
+
+function animateScroll(targetPosition) {
+  const startPosition = window.scrollY;
+  const distance = targetPosition - startPosition;
+  const duration = 700;
+  const startTime = performance.now();
+
+  function step(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    const easedProgress = easeInOutCubic(progress);
+
+    window.scrollTo(0, startPosition + distance * easedProgress);
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    }
+  }
+
+  requestAnimationFrame(step);
+}
+
+pageLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
+
+    if (!targetSection) return;
+
+    event.preventDefault();
+
+    const targetPosition =
+      targetSection.getBoundingClientRect().top + window.scrollY;
+
+    animateScroll(targetPosition);
+    history.pushState(null, "", targetId);
+  });
+});
