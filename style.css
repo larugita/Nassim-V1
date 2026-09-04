@@ -888,3 +888,13 @@ a:focus-visible {
     grid-template-columns: 1fr;
   }
 }
+.timeline-marker-completed {
+  background: #79c88f;
+  box-shadow: 0 0 0 1px rgba(121, 200, 143, 0.45);
+}
+
+.timeline-status-completed {
+  color: #9be0aa;
+  border-color: rgba(121, 200, 143, 0.3);
+  background: rgba(121, 200, 143, 0.12);
+}
